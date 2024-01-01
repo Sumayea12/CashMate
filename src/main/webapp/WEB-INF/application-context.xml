@@ -15,10 +15,10 @@
     </bean>
 
     <bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
-        <property name="databaseName" value="apwj"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/apwj"/>
+        <property name="databaseName" value="cashmate"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/cashmate"/>
         <property name="user" value="root"/>
-        <property name="password" value="root"/>
+        <property name="password" value="Sayma@12"/>
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">

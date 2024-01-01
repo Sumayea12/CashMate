@@ -22,7 +22,7 @@ public class UserAccount {
     private int accountId;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id_accountsFk")
     private User user;
 
     @Column(name = "account_balance")

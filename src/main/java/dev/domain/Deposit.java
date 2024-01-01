@@ -1,19 +1,5 @@
 package dev.domain;
 
-import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.util.List;
-import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -27,9 +13,13 @@ public class Deposit {
     @Column(name = "deposit_id")
     private int depositId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @JoinColumn(name = "deposit_userId_Fk")
     private User user;
+
+    @OneToOne
+    @JoinColumn(name = "deposit_AccountId_Fk")
+    private UserAccount userAccount;
 
     @Column(name = "deposit_amount")
     private int depositAmount;
@@ -39,6 +29,18 @@ public class Deposit {
 
     @Column(name = "deposit_duration")
     private int depositDuration;
+
+    // Constructors
+    public Deposit() {
+    }
+
+    public Deposit(User user, UserAccount userAccount, int depositAmount, LocalDate depositDate, int depositDuration) {
+        this.user = user;
+        this.userAccount = userAccount;
+        this.depositAmount = depositAmount;
+        this.depositDate = depositDate;
+        this.depositDuration = depositDuration;
+    }
 
     // Getters and Setters
     public int getDepositId() {
@@ -55,6 +57,14 @@ public class Deposit {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     public int getDepositAmount() {
@@ -81,23 +91,13 @@ public class Deposit {
         this.depositDuration = depositDuration;
     }
 
-    // Constructors
-    public Deposit() {
-    }
-
-    public Deposit(User user, int depositAmount, LocalDate depositDate, int depositDuration) {
-        this.user = user;
-        this.depositAmount = depositAmount;
-        this.depositDate = depositDate;
-        this.depositDuration = depositDuration;
-    }
-
     // toString method
     @Override
     public String toString() {
         return "Deposit{" +
                 "depositId=" + depositId +
                 ", user=" + user +
+                ", userAccount=" + userAccount +
                 ", depositAmount=" + depositAmount +
                 ", depositDate=" + depositDate +
                 ", depositDuration=" + depositDuration +

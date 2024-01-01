@@ -14,7 +14,6 @@
 <form:errors path="fullname"/>
 
 <br><br>
-
 <label>Gender</label>
 <form:radiobutton path="gender" value="MALE"/>MALE
 <form:radiobutton path="gender" value="FEMALE"/>FEMALE
