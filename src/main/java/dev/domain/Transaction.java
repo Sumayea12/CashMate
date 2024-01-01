@@ -20,8 +20,8 @@ public class Transaction {
     @Column(name = "transaction_id")
     private int transactionId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @JoinColumn(name = "trans_user_id_fk")
     private User user;
 
     @Column(name = "transaction_type")

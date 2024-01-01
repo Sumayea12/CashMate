@@ -33,4 +33,5 @@ public class UserAccountRepository {
         Session session = sessionFactory.getCurrentSession();
         return session.get(UserAccount.class, accountId);
     }
+
 }

@@ -45,4 +45,5 @@ public class UserRepository {
         Session session = sessionFactory.getCurrentSession();
         return session.get(User.class, id);
     }
+
 }

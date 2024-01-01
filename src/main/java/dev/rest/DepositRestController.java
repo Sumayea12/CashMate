@@ -30,9 +30,9 @@ public class DepositRestController {
         return depositService.getAll();
     }
 
-    @PostMapping("/AddDeposit/{user_id}/{accountId}")
-    public String createDeposit(@RequestBody Deposit deposit, @PathVariable int userId, @PathVariable int accountId) {
-        UserAccount userAccount = userAccountService.getById(accountId); // Retrieve User Account by ID using UserAccountService
+    @PostMapping("/AddDeposit/{user_id}/{account_id}")
+    public String createDeposit(@RequestBody Deposit deposit, @PathVariable int user_id, @PathVariable int account_id) {
+        UserAccount userAccount = userAccountService.getById(account_id); // Retrieve User Account by ID using UserAccountService
 
         // Set the user account for the deposit
         deposit.setUserAccount(userAccount);

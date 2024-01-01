@@ -27,16 +27,16 @@ public class AddMoney {
     @Column(name = "add_id")
     private int addId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @JoinColumn(name = "Add_UserId_Fk")
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "transaction_id")
-    private Transaction transaction;
+//    @OneToOne
+//    @JoinColumn(name = "Add_Trans_Id")
+//    private Transaction transaction;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
+    @OneToOne
+    @JoinColumn(name = "Add_Account_Fk")
     private UserAccount Useraccount;
 
     @Column(name = "amount")
@@ -62,13 +62,13 @@ public class AddMoney {
         this.user = user;
     }
 
-    public Transaction getTransaction() {
-        return transaction;
-    }
+//    public Transaction getTransaction() {
+//        return transaction;
+//    }
 
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
+//    public void setTransaction(Transaction transaction) {
+//        this.transaction = transaction;
+//    }
 
     public UserAccount getAccount() {
         return Useraccount;
@@ -98,9 +98,9 @@ public class AddMoney {
     public AddMoney() {
     }
 
-    public AddMoney(User user, Transaction transaction, UserAccount Useraccount, int amount, LocalDateTime addedAt) {
+    public AddMoney(User user,  UserAccount Useraccount, int amount, LocalDateTime addedAt) {
         this.user = user;
-        this.transaction = transaction;
+//        this.transaction = transaction;
         this.Useraccount = Useraccount;
         this.amount = amount;
         this.addedAt = addedAt;
@@ -112,7 +112,7 @@ public class AddMoney {
         return "AddMoney{" +
                 "addId=" + addId +
                 ", user=" + user +
-                ", transaction=" + transaction +
+//                ", transaction=" + transaction +
                 ", account=" + Useraccount +
                 ", amount=" + amount +
                 ", addedAt=" + addedAt +

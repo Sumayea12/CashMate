@@ -27,16 +27,16 @@ public class Donation {
     @Column(name = "donation_id")
     private Long donationId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @JoinColumn(name = "donation_UserId_Fk")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
+    @OneToOne
+    @JoinColumn(name = "account_Id_Fk")
     private UserAccount Useraccount;
 
     @Column(name = "donation_amount")
-    private BigDecimal donationAmount;
+    private int donationAmount;
 
     @Column(name = "donation_date")
     private LocalDate donationDate;
@@ -69,11 +69,11 @@ public class Donation {
         this.Useraccount = Useraccount;
     }
 
-    public BigDecimal getDonationAmount() {
+    public int getDonationAmount() {
         return donationAmount;
     }
 
-    public void setDonationAmount(BigDecimal donationAmount) {
+    public void setDonationAmount(int donationAmount) {
         this.donationAmount = donationAmount;
     }
 
@@ -97,7 +97,7 @@ public class Donation {
     public Donation() {
     }
 
-    public Donation(User user, UserAccount Useraccount, BigDecimal donationAmount, LocalDate donationDate, String charityName) {
+    public Donation(User user, UserAccount Useraccount, int donationAmount, LocalDate donationDate, String charityName) {
         this.user = user;
         this.Useraccount = Useraccount;
         this.donationAmount = donationAmount;
